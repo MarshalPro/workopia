@@ -14,25 +14,32 @@ Route::get('/jobs', function () {
 })->name('jobs');
 
 
-// Video named: Request Object & Query Params
-Route::get('/test', function (Request $request) {
-    return [
-        'method' => $request->method(),
-        'url' => $request->url(),
-        'path' => $request->path(),
-        'fullUrl' => $request->fullUrl(),
-        'ip' => $request->ip(),
-        'userAgent' => $request->userAgent(),
-        'header' => $request->header()
-    ];
+// Video named: Response Helper
+// Route::get('/test', function() {
+//     return response("You are Hafiz Quran", 200);
+// });
+
+// // Minute 3:18 Content Type with the request
+// Route::get('/test', function() {
+//     // return response("<h1>You are Hafiz Quran</h1>", 200)->header('Content-Type', 'text/plain');
+//     return response("<h1>You are Hafiz Quran</h1>", 200)->header('Content-Type', 'text/html');
+// });
+
+
+Route::get('/notfound', function() {
+    return response('Page Not Found', 404);
 });
 
-Route::get('/users', function (Request $request) {
-    // return $request->query('name'); // Gives us only name
-    // return $request->only(['name','age']); // Gives us only name and age
-    // return $request->all(); // Gives us all the query parameters
-    // return $request->has('name'); // Checks if the query parameters has name.
-    // return $request->has('filter'); // Checks if the query parameters has name.
-    // return $request->input('name'); // Works with query parameters and form fields.
-    return $request->except('name'); // Works with query parameters and form fields.
+// Minute 4:15 Content Type with the request
+Route::get('/test', function() {
+    return response()->json(['name' => 'Mustafa Karrokhi', 'age' => 40])->cookie('name', 'Mustafa Karrokhi');
+});
+
+Route::get('/download', function () {
+    return response()->download(public_path('favicon.ico'));
+});
+
+Route::get('/read-cookie', function(Request $request) {
+    $cookieValue = $request->cookie('name');
+    return response()->json(['cookie' => $cookieValue]);
 });
