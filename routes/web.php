@@ -5,13 +5,20 @@ use Illuminate\Support\Facades\Route;
 
 // Oreilly Training : Laravel from Scratch
 // Chapter 4: Views & Controllers
-// Video named: Create & Display Views
+// Video named: Passing Data to Views
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/jobs', function () {
-    return view('jobs.index');
+    $title = 'Available Jobs';
+    $jobs = [
+        'Database Admin',
+        'Software Engineer',
+        'Systems Analyst',
+        'Web Developer',
+    ];
+    return view('jobs.index', compact('title', 'jobs'));
 })->name('jobs');
 
 
