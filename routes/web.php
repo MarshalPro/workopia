@@ -35,18 +35,34 @@ Route::get('/jobs', function () {
     return '<h1>Available Jobs</h1>';
 })->name('jobs');
 
-Route::get('/test', function() {
-    $url= route('jobs');
-    return "<a href='$url'>Click Here</a>";
-});
+// Route::get('/test', function() {
+//     $url= route('jobs');
+//     return "<a href='$url'>Click Here</a>";
+// });
 
-// Building a backend API using Laravel
-Route::get('/api/users', function () {
-    return [
-        'name' => 'Mustafa Karrokhi',
-        'email' => 'mustafa-mcsd@hotmail.com'
-    ];
-});
+// // Building a backend API using Laravel
+// Route::get('/api/users', function () {
+//     return [
+//         'name' => 'Mustafa Karrokhi',
+//         'email' => 'mustafa-mcsd@hotmail.com'
+//     ];
+// });
 
 
 // TODO: Follow along with the video named: Route Parameters
+
+// Route::get('/posts/{id}', function (string $id) {
+//     return "Post ID: " . $id;
+// })->where('id', '[0-9]+'); // This will only accept numbers in the id parameter
+// })->where('id', '[a-zA-Z]+'); // This will only accept characters in the id parameter
+
+
+Route::get('/posts/{id}', function (string $id) {
+    return "Post: " . $id;
+// })->whereNumber('id'); // This will only accept numbers in the id parameter
+// })->whereAlpha('id'); // This will only accept numbers in the id parameter
+});
+
+Route::get('/posts/{id}/comments/{commentId}', function (string $id , string $commentId) {
+    return "Post: " . $id . " Comment : " . $commentId;
+});
