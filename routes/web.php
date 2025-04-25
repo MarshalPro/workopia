@@ -1,68 +1,38 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
+
+// USING THE ROUTE METHOD from Oreilly Training called: Laravel from Scratch
 Route::get('/', function () {
     return view('welcome');
 });
-
-// USING THE ROUTE METHOD from Oreilly Training called: Laravel from Scratch
-// Route::get('/jobs', function () {
-//     return '<h1>Available Jobs</h1>';
-// });
-
-// Route::post('/submit', function () {
-//     return 'Form Submitted';
-// });
-
-
-// // For specific routes, you can use the match method to handle multiple HTTP methods
-// // For example, if you want to handle both GET and POST requests for the same route:
-// Route::match(['get', 'post'] , '/submit', function () {
-//     return 'Form Submitted';
-// });
-
-
-
-// // You can also use the any method to handle all HTTP methods for a specific route:
-// // This is useful for APIs or when you want to handle all types of requests in the same way:
-Route::any('/submit', function () {
-    return 'Form Submitted';
-});
-
 
 Route::get('/jobs', function () {
     return '<h1>Available Jobs</h1>';
 })->name('jobs');
 
-// Route::get('/test', function() {
-//     $url= route('jobs');
-//     return "<a href='$url'>Click Here</a>";
-// });
 
-// // Building a backend API using Laravel
-// Route::get('/api/users', function () {
-//     return [
-//         'name' => 'Mustafa Karrokhi',
-//         'email' => 'mustafa-mcsd@hotmail.com'
-//     ];
-// });
-
-
-// TODO: Follow along with the video named: Route Parameters
-
-// Route::get('/posts/{id}', function (string $id) {
-//     return "Post ID: " . $id;
-// })->where('id', '[0-9]+'); // This will only accept numbers in the id parameter
-// })->where('id', '[a-zA-Z]+'); // This will only accept characters in the id parameter
-
-
-Route::get('/posts/{id}', function (string $id) {
-    return "Post: " . $id;
-// })->whereNumber('id'); // This will only accept numbers in the id parameter
-// })->whereAlpha('id'); // This will only accept numbers in the id parameter
+// Video named: Request Object & Query Params
+Route::get('/test', function (Request $request) {
+    return [
+        'method' => $request->method(),
+        'url' => $request->url(),
+        'path' => $request->path(),
+        'fullUrl' => $request->fullUrl(),
+        'ip' => $request->ip(),
+        'userAgent' => $request->userAgent(),
+        'header' => $request->header()
+    ];
 });
 
-Route::get('/posts/{id}/comments/{commentId}', function (string $id , string $commentId) {
-    return "Post: " . $id . " Comment : " . $commentId;
+Route::get('/users', function (Request $request) {
+    // return $request->query('name'); // Gives us only name
+    // return $request->only(['name','age']); // Gives us only name and age
+    // return $request->all(); // Gives us all the query parameters
+    // return $request->has('name'); // Checks if the query parameters has name.
+    // return $request->has('filter'); // Checks if the query parameters has name.
+    // return $request->input('name'); // Works with query parameters and form fields.
+    return $request->except('name'); // Works with query parameters and form fields.
 });
