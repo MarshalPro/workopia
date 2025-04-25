@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // Oreilly Training : Laravel from Scratch
 // Chapter 4: Views & Controllers
-// Video named: Passing Data to Views
+// Video named: Using Blade Templates & Directives
 Route::get('/', function () {
     return view('welcome');
 });
