@@ -6,9 +6,7 @@
     <title>Job Listings</title>
 </head>
 <body>
-    {{-- Oreilly Training : Laravel from Scratch
-         Chapter 4: Views & Controllers
-         Video named: More Loop Directives & $loop Variable --}}
+    {{-- Oreilly Training : Laravel from Scratch | Chapter 4 | More Loop Directives & $loop Variable --}}
     <h1>{{$title}}</h1>
     <ul>
         @forelse($jobs as $job)
@@ -18,16 +16,5 @@
         @endforelse
     </ul>
 
-    {{-- OLD Version --}}
-    {{-- <h1>{{$title}}</h1>
-    @if (!empty($jobs))
-    <ul>
-        @foreach($jobs as $job)
-        <li>{{$job}}</li>
-        @endforeach
-    </ul>
-    @else
-    <p>No jobs availabe. Stay tuned as we'll be back</p>
-    @endif --}}
 </body>
 </html>

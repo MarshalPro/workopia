@@ -1,30 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\HomeController;
 
 
-// Oreilly Training : Laravel from Scratch
-// Chapter 4: Views & Controllers
-// Video named: Using Blade Templates & Directives
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/jobs', function () {
-    $title = 'Available Jobs';
-    $jobs = [
-        'Database Admin',
-        'Software Engineer',
-        'Systems Analyst',
-        'Web Developer',
-    ];
-    return view('jobs.index', compact('title', 'jobs'));
-})->name('jobs');
-
-
-Route::get('/jobs/create', function () {
-    return view('jobs.create');
-})->name('jobs.create');
-
-
-
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/jobs', [JobController::class, 'index']);
+Route::get('/jobs/create', [JobController::class, 'create']);
+Route::get('/jobs/{id}', [JobController::class, 'show']);
+Route::post('/jobs', [JobController::class, 'store']);
