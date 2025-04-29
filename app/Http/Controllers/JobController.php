@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 
-// TODO : Oreilly Training : Laravel from Scratch
+// DONE : Oreilly Training : Laravel from Scratch
 // Chapter 4: Views & Controllers
-// Video named: Creating Controllers | Params and Request in Controller
+// Videos named: Creating Controllers | Params and Request in Controller
 
 class JobController extends Controller
 {
