@@ -7,7 +7,7 @@
 </head>
 <body>
     {{-- Oreilly Training : Laravel from Scratch | Chapter 4 | More Loop Directives & $loop Variable --}}
-    <h1>{{$title}}</h1>
+    <h1>Available Jobs</h1>
     <ul>
         @forelse($jobs as $job)
         <li>{{$job}}</li>
