@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 
-// TODO : Oreilly Training : Laravel from Scratch
+// Oreilly Training : Laravel from Scratch
+// Oreilly Training : Laravel from Scratch
 // Chapter 4: Views & Controllers
-// Videos named: CH-04 Generate Resource Routes and Methods
+// DONE: Videos named: CH-04 Generate Resource Routes and Methods
+// TODO : Videos named: CH-04 Type Hinting in Controllers
 
 class JobController extends Controller
 {
