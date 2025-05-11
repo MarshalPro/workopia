@@ -8,8 +8,8 @@ use Illuminate\View\View;
 
 // Oreilly Training : Laravel from Scratch
 // Chapter 4: Views & Controllers
-// DONE : Videos named: CH-04 Layouts with Template Inheritance
-// TODO : Videos named: CH-04 Partials and include Directive
+// DONE : Videos named: CH-04 Partials and include Directive
+// TODO : Videos named: CH-05 Intro to Components
 
 class JobController extends Controller
 {
