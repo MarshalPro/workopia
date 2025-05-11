@@ -3,20 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 
 // Oreilly Training : Laravel from Scratch
 // Oreilly Training : Laravel from Scratch
 // Chapter 4: Views & Controllers
-// DONE: Videos named: CH-04 Generate Resource Routes and Methods
-// TODO : Videos named: CH-04 Type Hinting in Controllers
+// DONE : Videos named: CH-04 Type Hinting in Controllers
+// TODO : Videos named: CH-04 Layouts with Template Inheritance
 
 class JobController extends Controller
 {
     /**
      * Auto generated functions. Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $jobs = [
             'Database Admin',
@@ -30,7 +31,7 @@ class JobController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('jobs.create');
     }
@@ -38,18 +39,19 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): string
     {
-        $title = $request->input('title');
-        $description = $request->input('description');
+        return "Storing job ...";
+        // $title = $request->input('title');
+        // $description = $request->input('description');
 
-        return "Title: $title, Description: $description";
+        // return "Title: $title, Description: $description";
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id): string
     {
         return "Showing job $id";
     }
@@ -59,7 +61,7 @@ class JobController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return "Editing job $id";
     }
 
     /**
@@ -67,15 +69,15 @@ class JobController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return "Updating job $id";
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): string
     {
-        //
+        return "Deleting job $id";
     }
 
     public function share()
