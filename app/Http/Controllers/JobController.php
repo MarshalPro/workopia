@@ -7,10 +7,9 @@ use Illuminate\View\View;
 
 
 // Oreilly Training : Laravel from Scratch
-// Oreilly Training : Laravel from Scratch
 // Chapter 4: Views & Controllers
-// DONE : Videos named: CH-04 Type Hinting in Controllers
-// TODO : Videos named: CH-04 Layouts with Template Inheritance
+// DONE : Videos named: CH-04 Layouts with Template Inheritance
+// TODO : Videos named: CH-04 Partials and include Directive
 
 class JobController extends Controller
 {
@@ -51,9 +50,10 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): string
+    public function show(string $id): View
     {
-        return "Showing job $id";
+        return view('jobs.show', compact('id'));
+        // return "Showing job $id";
     }
 
     /**
