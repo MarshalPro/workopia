@@ -4,7 +4,7 @@
 // Oreilly Training : Laravel from Scratch
 // Chapter 4: Views & Controllers
 // DONE : Videos named: CH-04 Partials and include Directive
-// TODO : Videos named: CH-05 Intro to Components --}}
+// Videos named: CH-05 Intro to Components --}}
 
 <head>
     <meta charset="UTF-8">
