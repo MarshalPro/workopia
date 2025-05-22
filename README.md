@@ -71,3 +71,60 @@ npx tailwindcss init -p
 ## Laravel PHP Commands
 
 php artisan make:component Header
+
+
+## GIT Commands
+<!-- This will set the git to last mentioned state and will do nothing for :
+    1. Untracked files (files never added to Git with git add)
+    2. Files listed in .gitignore
+    3. New files created since the last commit
+ -->
+    git reset --hard
+
+1. Remove all untracked files and directories
+    <!-- -f Force    |   -d removes directories too -->
+    git clean -fd
+
+2. If you also want to remove ignored files (like node_modules):
+    <!-- X removes only ignore files  -->
+   git clean -fdX       
+   
+3. For a dry run (see what would be deleted without actually deleting):
+    <!--  -->
+    git clean -fd --dry-run
+
+
+### Alternative Approach
+If you want to keep these files but return to a clean state:
+
+#### Stash everything (including untracked files)
+git stash --include-untracked
+
+#### Now you have a clean working directory
+#### Later you can apply or drop the stash as needed
+git stash pop  # to reapply
+git stash drop # to permanently remove
+
+
+
+
+
+
+# Files may need later
+
+## App.CSS
+'''js
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+''''
