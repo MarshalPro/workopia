@@ -3,7 +3,7 @@
     // echo $isActive ? 'active' : '';
 @endphp
 
-{{-- DONE:
+{{-- 
     // Oreilly Training : Laravel from Scratch
     // Chapter 5: Components and Styling
     // DONE : Videos named: CH-05 Mobile Menu Nav Link
@@ -25,10 +25,7 @@
             <x-button-link url="/jobs/create" icon="edit">Create Job</x-button-link>
 
         </nav>
-        <button
-            id="hamburger"
-            class="text-white md:hidden flex items-center"
-        >
+        <button id="burger" class="text-white md:hidden flex items-center" >
             <i class="fa fa-bars text-2xl"></i>
         </button>
     </div>

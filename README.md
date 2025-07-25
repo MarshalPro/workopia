@@ -72,6 +72,10 @@ npx tailwindcss init -p
 
 php artisan make:component Header
 php artisan make:component NavLink
+php artisan make:component ButtonLink
+php artisan make:component Hero
+php artisan make:component TopBanner
+php artisan make:component BottomBanner
 
 ## GIT Commands
 
