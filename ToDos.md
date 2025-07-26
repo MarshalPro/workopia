@@ -1,3 +1,11 @@
+2025-07-26 Saturday
+{
+@11:37 PM
+// Oreilly Training | Laravel from Scratch | Chapter 5: Components and Styling | Top & Bottom Banners
+// DONE : New Chapter: CH-06 | Database Setup and Migrations
+// TODO : Publish what we've got so far into a hosting service
+}
+
 2025-07-25 Friday
 {
 @8:37 PM

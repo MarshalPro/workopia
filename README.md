@@ -68,6 +68,98 @@ npm uninstall tailwindcss
 npm install -D tailwindcss@3.4.1 postcss autoprefixer
 npx tailwindcss init -p
 
+
+<!-- Installing Postgresql and PgAdmin -->
+
+brew install postgresql
+brew services start postgresql
+
+<!-- Provides list of all services run by Homebrew -->
+brew services list  
+
+XXXX psql postgresql
+psql postgres
+
+postgres=# \list
+Short Form  \l
+
+\du
+List of all DBMS users
+
+Below is the result:
+------------------------------------------------------------------------------------------
+postgres-# \list
+                           List of databases
+   Name    |  Owner  | Encoding | Collate | Ctype |  Access privileges
+-----------+---------+----------+---------+-------+---------------------
+ postgres  | mustafa | UTF8     | C       | C     |
+ template0 | mustafa | UTF8     | C       | C     | =c/mustafa         +
+           |         |          |         |       | mustafa=CTc/mustafa
+ template1 | mustafa | UTF8     | C       | C     | =c/mustafa         +
+           |         |          |         |       | mustafa=CTc/mustafa
+(3 rows)
+
+postgres-# du
+postgres-# \du
+                                   List of roles
+ Role name |                         Attributes                         | Member of
+-----------+------------------------------------------------------------+-----------
+ mustafa   | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+
+------------------------------------------------------------------------------------------
+
+To login to Postgres
+psql -U mustafa -d postgres     If not created Workopia
+
+psql -U workopia_dbuser -d workopia
+
+
+=========================================
+I installed mysql and used the follwoing commands used instead
+
+brew install mysql
+Upgrading from MySQL <8.4 to MySQL >9.0 requires running MySQL 8.4 first:
+ - brew services stop mysql
+ - brew install mysql@8.4
+ - brew services start mysql@8.4
+ - brew services stop mysql@8.4
+ - brew services start mysql
+
+Start Service
+brew services start mysql
+
+> brew services start mysql
+
+> brew services list
+Name          Status  User    File
+mysql         started mustafa ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+postgresql@14 started mustafa ~/Library/LaunchAgents/homebrew.mxcl.postgresql@14.plist
+
+> mysql -u root
+
+mysql> CREATE DATABASE workopia;
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| my_database        |
+| mysql              |
+| performance_schema |
+| sys                |
+| workopia           |
++--------------------+
+
+mysql> CREATE USER 'workopia_dbuser'@'localhost' IDENTIFIED BY '123654';
+mysql> GRANT ALL PRIVILEGES ON workopia.* TO 'workopia_dbuser'@'localhost';
+
+mysql> FLUSH PRIVILEGES;
+
+mysql> Show Tables;
+
+=========================================
+
+
 ## Laravel PHP Commands
 
 php artisan make:component Header
@@ -76,6 +168,76 @@ php artisan make:component ButtonLink
 php artisan make:component Hero
 php artisan make:component TopBanner
 php artisan make:component BottomBanner
+
+php artisan tinker
+Psy Shell v0.12.8 (PHP 8.4.8 — cli) by Justin Hileman
+> DB::select('SELECT version()')
+= [
+    {#6162
+      +"version()": "9.3.0",
+    },
+  ]
+
+> App\Models\Job::all()
+= Illuminate\Database\Eloquent\Collection {#2262
+    all: [],
+  }
+
+> Schema::getColumnListing('job_listings')
+= [
+    "id",
+    "title",
+    "description",
+    "created_at",
+    "updated_at",
+  ]
+
+
+> $job = App\Models\Job::class
+> $job::create(['title' => 'Job One', 'description' => 'This is job one'])
+= App\Models\Job {#6181
+    title: "Job One",
+    description: "This is job one",
+    updated_at: "2025-07-26 22:30:27",
+    created_at: "2025-07-26 22:30:27",
+    id: 1,
+  }
+
+> $job::create(['title' => 'Job 2', 'description' => 'This is job two'])  
+> $job::create(['title' => 'Job 3', 'description' => 'This is job three'])
+> $job::create(['title' => 'Job 4', 'description' => 'This is job four']) 
+
+>  $job::find(4) 
+= App\Models\Job {#6213
+    id: 4,
+    title: "Job 4",
+    description: "This is job four",
+    created_at: "2025-07-26 22:31:50",
+    updated_at: "2025-07-26 22:31:50",
+  }
+On Tinker Commandline
+$job::find(1)->update(['title'=>'Job 1', 'description'=> 'This is updated job one']) 
+$job::find(4)->delete() 
+
+
+
+php artisan make:migration create_job_listings_table
+php artisan migrate
+  2025_07_26_220058_create_job_listings_table ............ 42.58ms DONE
+
+php artisan make:model Job
+
+
+## Migration Commands
+migrate - Runs all of the migrations that are in the migrations directory. 
+migrate:fresh - Completely drops all tables and re-runs all migrations. 
+migrate:install - Creates the migrations table.
+migrate:refresh - Rolls back all migrations and then re-applies them. 
+migrate:reset - Rolls back all of the migrations that have been run. 
+migrate:rollback - Rolls back the last migration that was run. 
+migrate:status - Shows the status of the migrations.
+
+
 
 ## GIT Commands
 
@@ -98,6 +260,16 @@ php artisan make:component BottomBanner
 3. For a dry run (see what would be deleted without actually deleting):
     <!--  -->
     git clean -fd --dry-run
+
+
+## SQL (Postgres / MySQL / SQLite) Commands
+
+<!-- All Commands run in this project will be listed here.
+      Working with Database started from CH-06 PHP Laravel Course
+ -->
+
+
+
 
 ### Alternative Approach
 
