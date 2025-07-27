@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Job;
 
-
-// Oreilly Training : Laravel from Scratch
-// Chapter 4: Views & Controllers
+// Oreilly Training : Laravel from Scratch | Chapter 4: Views & Controllers
 // DONE : Videos named: CH-04 Partials and include Directive
 // TODO : Videos named: CH-05 Intro to Components
 
@@ -41,21 +40,26 @@ class JobController extends Controller
    /**
     * Store a newly created resource in storage.
     */
-   public function store(Request $request): string
+   public function store(Request $request): RedirectResponse
    {
-      return "Storing job ...";
-      // $title = $request->input('title');
-      // $description = $request->input('description');
+      $title = $request->input('title');
+      $description = $request->input('description');
 
-      // return "Title: $title, Description: $description";
+      Job::create([
+         'title' => $title,
+         'description' => $description,
+      ]);
+
+      return redirect()->route('jobs.index');
    }
 
    /**
     * Display the specified resource.
     */
-   public function show(string $id): View
+   public function show(Job $job): View
    {
-      return view('jobs.show', compact('id'));
+      return view('jobs.show')->with('job', $job);
+      // return view('jobs.show', compact('id'));
       // return "Showing job $id";
    }
 
