@@ -1,3 +1,20 @@
+
+2025-08-11 Monday
+{
+@09:55 PM
+// Oreilly Training | Laravel from Scratch | Chapter 7: Models, Eloquent ORM, Factories and Seeders
+// DONE : New Chapter: CH-07 | Input Validation and Errors
+// TODO : Publish what we've got so far into a hosting service
+}
+
+2025-07-27 Sunday
+{
+@01:40 AM
+// Oreilly Training | Laravel from Scratch | Chapter 7: Models, Eloquent ORM, Factories and Seeders
+// DONE : New Chapter: CH-07 | Tinker and CRUD Operations
+// TODO : Publish what we've got so far into a hosting service
+}
+
 2025-07-26 Saturday
 {
 @11:37 PM
