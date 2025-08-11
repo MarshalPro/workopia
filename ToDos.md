@@ -1,10 +1,18 @@
 
 2025-08-11 Monday
 {
+@11:20 PM
+// Oreilly Training | Laravel from Scratch | Chapter 7: Models, Eloquent ORM, Factories and Seeders
+// DONE : New Chapter: CH-07 | Job Schema Update Migration | Eloquent Relationships | Using Factories
+// TODO :  CH-07 | Creating Factories & Faker Library
+}
+
+2025-08-11 Monday
+{
 @09:55 PM
 // Oreilly Training | Laravel from Scratch | Chapter 7: Models, Eloquent ORM, Factories and Seeders
 // DONE : New Chapter: CH-07 | Input Validation and Errors
-// TODO : Publish what we've got so far into a hosting service
+// TODO :  CH-07 | Job Schema Update Migration
 }
 
 2025-07-27 Sunday

@@ -234,6 +234,19 @@ php artisan migrate
 
 php artisan make:model Job
 
+<!-- Creating job listing schema for real world apps -->
+php artisan make:migration add_fields_to_job_listing_table --table=job_listings
+
+<!-- After creating the models Run these comamnds -->
+>php artisan migrate
+2025_08_11_190204_add_fields_to_job_listing_table .............................................. 161.76ms DONE
+
+<!-- Creating Dummy Users using tinker -->
+php artisan tinker
+> \App\Models\User::factory()->create();
+> \App\Models\User::factory()->unverified()->create();
+> \App\Models\User::factory()->count(9)->create();
+
 ## Migration Commands
 
 migrate - Runs all of the migrations that are in the migrations directory.
